@@ -2,7 +2,7 @@
     <div class="flex flex-wrap gap-4 justify-center">
         @foreach ($kepek as $kep)
             <div class="h-52 w-52 relative">
-                <img class="w-full h-full object-cover" src="{{ url('/storage/galeria/' . $kep->filepath) }}" />
+                <img class="w-full h-full object-cover" src="{{ url('storage/galeria/' . $kep->filepath) }}" />
                 <button wire:click="delete({{ $kep->id }})"
                     class="absolute bg-red-500 hover:bg-red-700 text-white rounded-full -top-2 -right-2">
                     <span>

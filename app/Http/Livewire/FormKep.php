@@ -33,8 +33,8 @@ class FormKep extends Component
     public function submit()
     {
         $this->validate([
-            'filepath.0' => 'required|mimes:jpg,png,jpeg',
-            'filepath.*' => 'required|mimes:pdf,doc,docx,jpg,png,jpeg'
+            'filepath.0' => 'required|mimes:pdf,jpg,png,jpeg',
+            'filepath.*' => 'required|mimes:pdf,jpg,png,jpeg'
         ],
         [
             'filepath.0.required' => 'Fájl kiválasztása kötelező',
@@ -44,11 +44,14 @@ class FormKep extends Component
 
         foreach ($this->filepath as $key => $value) {
             $originalFileName =$this->filepath[$key]->getClientOriginalName();
+            $filename = pathinfo($originalFileName, PATHINFO_FILENAME);
+            $extension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+            $currentFile = $filename.time().'.'.$extension;
             if(!empty($this->filepath[$key])) {
-                $this->filepath[$key]->storeAs('public/galeria', $originalFileName);
+                $this->filepath[$key]->storeAs('public/galeria/', $currentFile);
             }
             Kep::create([
-                'filepath' => $originalFileName
+                'filepath' => $currentFile
             ]);
         }
 

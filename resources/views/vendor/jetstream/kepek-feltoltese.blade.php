@@ -12,9 +12,7 @@
                 <div class="card-body p-6">
                     @livewire('form-kep')
                 </div>
-                @livewire('show-kep') 
-                  @livewireScripts
-                  
+                @livewire('show-kep')                   
             </div>
         </div>
     </div>

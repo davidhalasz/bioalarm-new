@@ -7,8 +7,6 @@
     @endif
 
     <form>
-        
-
         <div class="grid grid-cols-4 gap-2 add-input mb-4">
             <div class="form-group my-auto">
                 <label class="custom-file-label" for="chooseFile.0">
@@ -20,7 +18,6 @@
                 </label>
             </div>
         </div>
-
 
         @foreach ($inputs as $key => $value)
             <div class="grid grid-cols-4 gap-2 add-input mb-4">

@@ -180,7 +180,6 @@
     <script>
         function bsd(status) {
             var body = document.querySelector("body");
-
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
@@ -210,19 +209,19 @@
 
     <div class="flex flex-wrap gap-4 justify-center">
         @foreach ($kepek as $kep)
-            <div x-on:click="open = true" class="h-52 w-52 cursor-pointer"
+            <div x-on:click="open = true" class="h-24 w-24 md:h-52 md:w-52 cursor-pointer"
             @click="imageUrl = '{{ url('/storage/galeria/' . $kep->filepath) }}'">
                 <img class="w-full h-full object-cover" src="{{ url('/storage/galeria/' . $kep->filepath) }}" />
             </div>
         @endforeach
 
-        <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" 
-            class="fixed inset-0 z-10 overflow-y-auto">
+        <div x-show="open" style="display: none; height: 100%" x-on:keydown.escape.prevent.stop="open = false" 
+            class="fixed inset-0 z-10 overflow-y-auto bg-black bg-opacity-50">
             <div x-show="open" x-transition x-on:click="open = false"
-                class="relative flex min-h-screen items-center justify-center p-4">
+                class="relative flex max-h-screen items-center justify-center p-4">
                 <div x-on:click.stop x-trap.noscroll.inert="open"
-                    class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-2 shadow-lg">
-                    <img x-on:click="open = false" class="w-full h-full object-cover" :src="imageUrl" />
+                    class="relative w-full max-w-2xl overflow-y-auto rounded-xl p-2">
+                    <img x-on:click="open = false" class="w-full h-full p-24 object-cover" :src="imageUrl" />
                 </div>
             </div>
         </div>
