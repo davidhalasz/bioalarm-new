@@ -1,9 +1,9 @@
 <x-guest-layout>
     <div>
     <div class="bg-blue-500">
-        <div class="max-w-2xl mx-auto  bg-blue-500 text-white">
-            <h1 class="text-6xl font-bold text-center pt-28 tracking-wide">BIOALARM</h1>
-            <p class="pt-12 text-2xl font-semibold text-center tracking-wide leading-relaxed">Biológiai alapú vízminőség
+        <div class="max-w-2xl mx-auto bg-blue-500 text-white">
+            <h1 class="text-3xl md:text-6xl font-bold text-center pt-12 md:pt-28 tracking-wide">BIOALARM</h1>
+            <p class="pt-12 text-xl md:text-2xl font-semibold text-center tracking-wide leading-relaxed">Biológiai alapú vízminőség
                 állapot felmérő és riasztó rendszer
                 megvalósítása, feltételeinek kidolgozása.</p>
         </div>
@@ -46,11 +46,11 @@
                 Európa-szerte értékesíthető és használható a természetes vizek minőségének vizsgálatára.
             </p>
 
-            <img class="mx-auto p-16 lg:p-24" src="{{ asset('images/about-kep.png') }}" alt="">
+            <img class="mx-auto p-10 lg:p-24" src="{{ asset('images/about-kep.png') }}" alt="">
         </div>
     </div>
 
-    <div id="projekt" class="bg-blue-200 py-32 relative px-8 lg:px-0">
+    <div id="projekt" class="bg-blue-200 py-20 md:py-32 relative lg:px-8 lg:px-0">
         <div class="bg-[url('../../public/images/circles.svg')] absolute top-0 left-0 z-1 w-full h-12">
 
         </div>
@@ -59,14 +59,14 @@
                 A Projekt
             </h2>
             <div class="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
-                <div class="bg-slate-900 text-white p-12 rounded-3xl relative mb-6">
-                    <div class="bg-blue-500 w-14 h-14 p-4 rounded-full font-bold absolute -top-4 text-center right-1/2 lg:-right-4 translate-x-1/2 lg:-translate-x-0">
+                <div class="bg-slate-900 text-white p-6  md:p-12 rounded-3xl relative mb-6">
+                    <div class="bg-blue-500 w-14 h-14 p-4 rounded-full font-bold absolute -top-6 md:-top-4 text-center right-1/2 lg:-right-4 translate-x-1/2 lg:-translate-x-0">
                         <span>
                             1.
                         </span>
                     </div>
 
-                    <p class="text-lg tracking-wide leading-relaxed text-justify">
+                    <p class="text-lg tracking-wide leading-relaxed text-justify mt-2">
                         A projektben egy olyan ötlet kerül megvalósíthatósági tanulmánya kerül kidolgozásra, mely első,
                         kutatási
                         fázisában feltérképezésre kerülnek a vízminőség vizsgálat során Európában alkalmazott,
@@ -91,15 +91,15 @@
                     </p>
                 </div>
                 <div>
-                    <div class="bg-slate-900 text-white p-12 rounded-3xl relative mb-6">
+                    <div class="bg-slate-900 text-white p-6 md:p-12 rounded-3xl relative mb-6">
                         <div
-                            class="bg-blue-500 w-14 h-14 p-4 rounded-full font-bold absolute -top-4 left-1/2 lg:-left-4 -translate-x-1/2 lg:translate-x-0 text-center">
+                            class="bg-blue-500 w-14 h-14 p-4 rounded-full font-bold absolute -top-6 md:-top-4 left-1/2 lg:-left-4 -translate-x-1/2 lg:translate-x-0 text-center">
                             <span>
                                 2.
                             </span>
                         </div>
 
-                        <p class="text-lg tracking-wide leading-relaxed text-justify">
+                        <p class="text-lg tracking-wide leading-relaxed text-justify  mt-2">
                             A megvalósíthatósági tanulmány második fázisában az előállítandó rendszer szoftverének
                             rendszerterv
                             készül el. Ez egy döntéstámogató szakértői rendszer lesz, amely alkalmas a biológiai
@@ -150,7 +150,7 @@
     </div>
 
 
-    <div id="partnerek" class="container mx-auto py-32">
+    <div id="partnerek" class="container mx-auto py-20 md:py-32 ">
         <h1 class="text-3xl pb-12 text-center">
             Partnerek
         </h1>
@@ -162,52 +162,17 @@
     </div>
 
 
-    <div id="hirek-esemenyek" class="container mx-auto py-32">
+    <div id="hirek-esemenyek" class="container mx-auto py-20 md:py-32 ">
         <h1 class="text-3xl pb-12 text-center">
             Hírek, események
         </h1>
 
         <div class="flex flex-wrap gap-4 justify-center">
             @foreach ($hirek as $hir)
-                <div>
-
-                    <div x-data="{ id: 'modal-example{{ $hir->id }}' }" x-on:click="bsd(true), $dispatch('modal-overlay',{id})"
-                        class="rounded-xl cursor-pointer w-96 border border-blue-500 hover:bg-blue-500 hover:text-white p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                <a href="{{ url('cikk/' . $hir->id) }}" class="rounded-xl cursor-pointer w-96 border border-blue-500 hover:bg-blue-500 hover:text-white p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
                         <h2 class="text-lg pb-3">{{ $hir->title }}</h2>
-                        <p class="line-clamp-3">{{ $hir->body }}</p>
-                    </div>
-
-                    <div class="fixed inset-0 z-50 flex flex-col items-center justify-end px-5 overflow-y-auto bg-gray-800 bg-opacity-50 sm:justify-start sm:px-0"
-                        x-data="{ modal: false }" x-show="modal"
-                        x-on:modal-overlay.window="if ($event.detail.id == 'modal-example{{ $hir->id }}') modal=true"
-                        x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0"
-                        x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-500"
-                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-cloak>
-                        <div class="w-full mb-5 transition-all transform sm:mt-20 sm:mb-0 sm:max-w-2xl" x-show="modal"
-                            x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 -translate-y-4 sm:translate-y-4"
-                            x-transition:enter-end="opacity-100 translate-y-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="opacity-100 translate-y-0"
-                            x-transition:leave-end="opacity-0 -translate-y-4 sm:translate-y-4"
-                            x-on:click.away="modal=false, bsd(false)">
-                            <div class="p-10 bg-white rounded-xl shadow-sm relative">
-                                <button class="rounded-full bg-red-500 absolute z-60 -top-2 -right-2 text-white" @click="modal=false">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                          </svg>                          
-                                    </span>
-                                </button>
-                                <h3 class="text-lg font-bold mb-3">
-                                    {{ $hir->title }}
-                                </h3>
-                                {{ $hir->body }}
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                        <p class="line-clamp-3">{{ strip_tags($hir->body) }}</p>
+                </a>
             @endforeach
         </div>
     </div>
@@ -238,7 +203,7 @@
 
 
 
-<div x-data="{ open: false, imageUrl: '' }" id="galeria" class="container mx-auto py-32">
+<div x-data="{ open: false, imageUrl: '' }" id="galeria" class="container mx-auto py-20 md:py-32">
     <h1 class="text-3xl pb-12 text-center">
         Galéria
     </h1>
@@ -253,9 +218,6 @@
 
         <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" 
             class="fixed inset-0 z-10 overflow-y-auto">
-
-  
-
             <div x-show="open" x-transition x-on:click="open = false"
                 class="relative flex min-h-screen items-center justify-center p-4">
                 <div x-on:click.stop x-trap.noscroll.inert="open"
@@ -286,7 +248,7 @@
                             </h2>
                         </div>
                         <div class="flex flex-wrap -mx-4 lg:pt-20">
-                            <div class="max-w-[330px] w-full px-4">
+                            <div class="max-w-[330px] w-full px-4 xs:w-full">
                                 <div class="w-full mb-12">
                                     <div class="flex pt-4">
                                         <div class="w-9 h-9 mr-6 text-primary">

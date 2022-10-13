@@ -71,7 +71,7 @@ class="bg-blue-500 w-full"
         >
           <ul class="blcok lg:flex">
             <li>
-              <a onclick="scrollTo('rolunk')" href="#rolunk"
+              <a onclick="scrollTo('rolunk')" href="{{ url('/#rolunk') }}"
                
                 class="
                   text-lg
@@ -90,7 +90,7 @@ class="bg-blue-500 w-full"
             </li>
             <li>
               <a
-              onclick="scrollTo('projekt')" href="#projekt"
+              onclick="scrollTo('projekt')" href="{{ url('/#projekt') }}"
                 class="
                   text-lg
                   font-medium
@@ -108,7 +108,7 @@ class="bg-blue-500 w-full"
             </li>
             <li>
               <a
-              onclick="scrollTo('partnerek')" href="#partnerek"
+              onclick="scrollTo('partnerek')" href="{{ url('/#partnerek') }}"
                 class="
                   text-lg
                   font-medium
@@ -126,7 +126,7 @@ class="bg-blue-500 w-full"
             </li>
             <li>
               <a
-              onclick="scrollTo('hirek-esemenyek')" href="#hirek-esemenyek"
+              onclick="scrollTo('hirek-esemenyek')" href="{{ url('/#hirek-esemenyek') }}"
                 class="
                   text-lg
                   font-medium
@@ -144,7 +144,7 @@ class="bg-blue-500 w-full"
             </li>
             <li>
               <a
-              onclick="scrollTo('galeria')" href="#galeria"
+              onclick="scrollTo('galeria')" href="{{ url('/#galeria') }}"
                 class="
                   text-lg
                   font-medium
@@ -162,7 +162,7 @@ class="bg-blue-500 w-full"
             </li>
             <li>
                 <a
-                onclick="scrollTo('kapcsolat')" href="#kapcsolat"
+                onclick="scrollTo('kapcsolat')" href="{{ url('/#kapcsolat') }}"
                   class="
                     text-lg
                     font-medium

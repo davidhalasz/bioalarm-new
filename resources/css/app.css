@@ -6,3 +6,7 @@
 html, body {
     scroll-behavior: smooth;
 }
+
+.trix-content{
+    height: 350px;
+}

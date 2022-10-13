@@ -24,4 +24,18 @@ class Controller extends BaseController
   
         return view('welcome',compact(['hirek', 'kepek']));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('news-detail', [
+            'cikk' => Hir::findOrFail($id)
+        ]);
+    }
+
 }

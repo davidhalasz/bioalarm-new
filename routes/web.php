@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class, 'index']);
+Route::get('/', [Controller::class, 'index'])->name('fooldal');
+Route::get('/cikk/{id}', [Controller::class, 'show']);
 
 Route::middleware([
     'auth:sanctum',
@@ -27,6 +28,9 @@ Route::middleware([
     Route::get('/hirek', function () {
         return view('vendor/jetstream/hirek-feltoltese');
     })->name('hirek-feltoltese');
+    Route::get('/hir-szerkesztese/{id}', function () {
+        return view('vendor/jetstream/hirek-szerkesztese');
+    })->name('hirek-szerkesztese');
     Route::get('/kepek', function () {
         return view('vendor/jetstream/kepek-feltoltese');
     })->name('kepek-feltoltese');
