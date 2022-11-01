@@ -11,7 +11,7 @@ class="bg-blue-500 w-full"
     <div class="px-4 w-60 max-w-full">
       <a href="javascript:void(0)" class="w-full block py-5 lg:py-3">
         <img
-          src="https://cdn.tailgrids.com/1.0/assets/images/logo/logo.svg"
+          src="{{asset('/images/bioalarmlogow.png')}}"
           alt="logo"
           class="w-full"
         />
