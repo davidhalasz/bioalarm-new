@@ -1,18 +1,9 @@
 <footer class="bg-blue-500 pt-20 lg:pt-[120px] pb-10 lg:pb-20 relative z-[-10] text-white">
     <div class="container mx-auto px-8 lg:px-0">
         <div class="flex flex-wrap -mx-4">
-            <div class="w-full md:w-2/3 lg:w-1/3 px-4">
-                <div class="w-full mb-12">
-                    <div class="w-1/2">
-                        <a href="javascript:void(0)" class="w-full block py-5 lg:py-3">
-                            <img
-                              src="{{asset('/images/bioalarmlogow.png')}}"
-                              alt="logo"
-                              class="w-full"
-                            />
-                          </a>
-                    </div>
-
+            <div class="w-full md:w-full lg:w-1/3 px-4">
+                <div class="w-full mb-12 flex justify-center">
+                        <img src="{{ asset('images/bioalarmlogow.png') }}" alt="logo" class="w-1/2 md:w-1/3 lg:w-1/2" />
                 </div>
             </div>
             <div class="w-full md:w-1/2 lg:w-1/3 px-4">
@@ -20,7 +11,7 @@
                     <div class="flex">
 
                         <div>
-                            <h4 class="text-white text-lg font-bold mb-9">Linkek</h4>
+                            <h4 class="text-white text-lg font-bold lg:mb-9 mb-4">Linkek</h4>
                             <ul>
                                 <li>
                                     <a href="/tudtad-e"
@@ -75,12 +66,12 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 lg:w-1/3 px-4 sm:mt-10 md:mt-0">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mt-10 md:mt-0">
                 <div class="w-full">
                     <div class="flex">
 
                         <div>
-                            <h4 class="text-white text-lg font-bold mb-9">Kapcsolat</h4>
+                            <h4 class="text-white text-lg font-bold lg:mb-9 mb-4">Kapcsolat</h4>
                             <ul>
                                 <li class="mb-2">
                                     Alexy Norbert

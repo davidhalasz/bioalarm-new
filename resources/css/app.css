@@ -10,3 +10,43 @@ html, body {
 .trix-content{
     height: 350px;
 }
+
+
+.hover13 img:hover {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#tv {
+    position: relative;
+    background: white;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 12px 12px rgba(30,64,175,.55);
+    transition: all .4s ease;
+  }
+  #tv:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(30,64,175,.65);
+  }
+
+  #tv:hover img{
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  } 

@@ -11,7 +11,7 @@ class="bg-blue-500 w-full"
     <div class="px-4 w-60 max-w-full">
       <a href="javascript:void(0)" class="w-full block py-5 lg:py-3">
         <img
-          src="{{asset('/images/bioalarmlogow.png')}}"
+        src="{{ asset('images/bioalarmlogow.png') }}"
           alt="logo"
           class="w-full"
         />
@@ -24,7 +24,7 @@ class="bg-blue-500 w-full"
           :class="navbarOpen && 'navbarTogglerActive' "
           id="navbarToggler"
           class="
-            block
+            block 
             absolute
             right-4
             top-1/2
