@@ -15,8 +15,16 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
+        @props([
+   'hirek',
+   'kepek'
+])
         <div class="min-h-screen homePage">
+            @if (!empty($kepek) || !empty($hirek))
+            @include('layouts.guest-navigation-menu', ['hirek' =>$hirek, 'kepek' => $kepek ])
+            @else 
             @include('layouts.guest-navigation-menu')
+            @endif
             <main>
                 {{ $slot }}
             </main>

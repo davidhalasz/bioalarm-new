@@ -55,7 +55,7 @@
              <input
              wire:model="email"
                 type="email"
-                placeholder="example@yourmail.com"
+                placeholder="pelda@email.com"
                 class="
                 border-b border-[#f1f1f1]
                 w-full

@@ -1,3 +1,4 @@
+<div>
 <form wire:submit.prevent="submit">
     <div class="form-group mb-6 text-gray-900">
         <label for="title" class="block mb-2 text-sm font-medium">Cím</label>
@@ -28,3 +29,43 @@ x-data
         <button type="submit" class="px-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Küldés</button>
     </div>
 </form>
+<script>
+      var mimeTypes = ["image/png", "image/jpeg", "image/jpg"];
+      addEventListener("trix-file-accept", function(event) {
+            if (! mimeTypes.includes(event.file.type) ) {
+                // file type not allowed, prevent default upload
+                return event.preventDefault();
+            }
+        });
+        addEventListener("trix-attachment-add", function(event){
+            uploadTrixImage(event.attachment);
+        });
+        function uploadTrixImage(attachment){
+            // upload with livewire
+            @this.upload(
+                'photos',
+                attachment.file,
+                function (uploadedURL) {
+
+                    // We need to create a custom event.
+                    // This event will create a pause in thread execution until we get the Response URL from the Trix Component @completeUpload
+                    const trixUploadCompletedEvent = `trix-upload-completed:${btoa(uploadedURL)}`;
+                    const trixUploadCompletedListener = function(event) {
+                        attachment.setAttributes(event.detail);
+                        window.removeEventListener(trixUploadCompletedEvent, trixUploadCompletedListener);
+                    }
+
+                    window.addEventListener(trixUploadCompletedEvent, trixUploadCompletedListener);
+
+                    // call the Trix Component @completeUpload below
+                    @this.call('completeUpload', uploadedURL, trixUploadCompletedEvent);
+                },
+                function() {},
+                function(event){
+                    attachment.setUploadProgress(event.detail.progress);
+                },
+            )
+            // complete the upload and get the actual file URL
+        }
+</script>
+</div>

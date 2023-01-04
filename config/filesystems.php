@@ -43,6 +43,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'public-hirek' => [
+            'driver' => 'local',
+            'root' => public_path('photos'),
+            'url' => '/photos',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
         's3' => [
             'driver' => 's3',

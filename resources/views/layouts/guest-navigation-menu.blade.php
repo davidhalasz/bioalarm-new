@@ -124,6 +124,7 @@ class="bg-blue-500 w-full"
                 Partnerek
               </a>
             </li>
+            @if (!empty($hirek))
             <li>
               <a
               onclick="scrollTo('hirek-esemenyek')" href="{{ url('/#hirek-esemenyek') }}"
@@ -142,6 +143,8 @@ class="bg-blue-500 w-full"
                 Hírek, Események
               </a>
             </li>
+            @endif
+            @if (!empty($kepek))
             <li>
               <a
               onclick="scrollTo('galeria')" href="{{ url('/#galeria') }}"
@@ -160,6 +163,7 @@ class="bg-blue-500 w-full"
                 Galéria
               </a>
             </li>
+            @endif
             <li>
                 <a
                 onclick="scrollTo('kapcsolat')" href="{{ url('/#kapcsolat') }}"
