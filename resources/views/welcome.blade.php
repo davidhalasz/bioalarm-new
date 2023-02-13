@@ -263,9 +263,9 @@
         <div x-show="open" style="display: none; height: 100%" x-on:keydown.escape.prevent.stop="open = false" 
             class="fixed inset-0 z-10 overflow-y-auto bg-black bg-opacity-50">
             <div x-show="open" x-transition x-on:click="open = false"
-                class="relative flex max-h-screen items-center justify-center p-4">
+                class="relative flex min-h-screen items-center justify-center p-4">
                 <div x-on:click.stop x-trap.noscroll.inert="open"
-                    class="relative w-full max-w-2xl overflow-y-auto rounded-xl p-2">
+                    class="relative w-full max-w-6xl overflow-y-auto rounded-xl p-2">
                     <img x-on:click="open = false" class="w-full h-full p-24 object-cover" :src="imageUrl" />
                 </div>
             </div>
